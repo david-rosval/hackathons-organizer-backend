@@ -1,10 +1,6 @@
 import createApp from "./app";
-import { PORT } from "./config";
+import { UserModel } from "./models/postgresql/user";
 
-const app = createApp()
+const userModel = new UserModel()
 
-const port = PORT ?? 3000
-
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`)
-})
+createApp({ userModel })
